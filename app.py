@@ -5,6 +5,10 @@ from src.repositories.movie_repository import movie_repository_singleton
 app = Flask(__name__)
 
 # TODO: DB connection
+app.config.from_object('config.Config')
+
+# Create SQLAlchemy DB object
+db = SQLAlchemy(app)
 
 @app.get('/')
 def index():
